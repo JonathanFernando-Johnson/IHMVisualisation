@@ -1,6 +1,7 @@
 .menu{
     display: flex;
     position: fixed;
+    justify-content: space-evenly;
     height: 40px;
     width: 100%;
     padding: 0;
@@ -14,14 +15,22 @@
     font-size: 18px;
     padding: 8px;
     color: blue;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .filtre + .filtre {
     border-left:  solid 1px #999999;
 }
-
 .liste-conteneur{
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 40px;
+  padding-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.categorie-exigence{
+
+
 }

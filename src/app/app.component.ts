@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {csvToJson} from 'convert-csv-to-json';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,18 +10,32 @@ import {csvToJson} from 'convert-csv-to-json';
 
 export class AppComponent {
 
-  public exigences = "test";
-  
-  public exigencesFiltered = [1,2,3,4];
-  public filtres = [ 'Behavior', 'Component'];
+  public exigences = [];
 
-  ngOnInit() {
-    this.exigences =  csvToJson.getJsonFromCsv("assets/Exigences_Landing_System_Categories.csv");
-    console.log(this.exigences);
+  public exigencesFiltered = [];
+  public filtres = [ 'Behavior', 'Component', 'Role', 'Constraint', 'Meta-requirement','Goal','Limit', 'Lack', 'Tous'];
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(){
+    this.http.get('/assets/categories.json', {responseType: 'text'})
+    .subscribe(data => {
+      this.exigences = (JSON.parse(data));
+      console.log(this.exigences);
+      this.exigencesFiltered = this.exigences;
+    });
   }
 
   public setFilter(filtre){
-    
-    console.log(filtre);
+    this.exigencesFiltered = [];
+    if(filtre === 'Tous'){
+      this.exigencesFiltered = this.exigences;
+    }else{
+    this.exigences.forEach(exigence => {
+      if(exigence['Categories'] && exigence['Categories'] === filtre) {
+        this.exigencesFiltered.push(exigence);
+      }
+    });
+  }
   }
 }

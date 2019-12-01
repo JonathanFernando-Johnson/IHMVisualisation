@@ -2,6 +2,6 @@
   <div class="filtre" *ngFor="let elem of filtres" (click)="setFilter(elem)">{{elem}}</div>
 </div>
 <div class="liste-conteneur">
-<app-exigence *ngFor="let exi of exigencesFiltered" [exigence]="exi">
-</app-exigence>
+    <app-exigence *ngFor="let exi of exigencesFiltered" [exigence]="exi">
+    </app-exigence>
 </div>
