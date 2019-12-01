@@ -1,0 +1,1472 @@
+[
+  {
+    "Exigences": "The system is controlled digitally in nominal mode and analogically in emergency mode.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/description.txt#L4",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "In nominal mode, the landing sequence is: open the doors of the landing gearboxes, extend the landing gears and close the doors. This sequence is illustrated in Figure 2.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/description.txt#L8",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "After taking off, the retraction sequence to be performed is: open the doors, retract the landing gears and close the doors.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/description.txt#L9",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "Figure 2",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/landingSequence.png",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "The  landing  system  is  composed  of  3  landing  sets:  front,  left  and right.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/description.txt#L2",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Figure 1",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/landingSet.png",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The  landing  system  is  in  charge  of  maneuvering  landing  gears  and  associated  doors.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/description.txt#L1",
+    "Categories": "Goal",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "However, in order to allow the pilot to activate the emergency command, the system has to elaborate health parameters for all the equipments involved in the landing gear function.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/description.txt#L6",
+    "Categories": "Goal",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In this case study, we do not consider the emergency mode.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/description.txt#L5",
+    "Categories": "Lack",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Each landing set contains a door, a landing-gear and associated hydraulic cylinders (see Fig. 1).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/description.txt#L3",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "This health monitoring part is in the scope of the case study.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/description.txt#L7",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "As shown in Figure 3, the landing gear system is composed of three parts: (i) a mechanical part which contains all the mechanical devices and the three landing sets, (ii )a digital part including the control software, and (iii) a pilot interface.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L1",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "To command the retraction and outgoing of gears, an Up/Down handle is provided to the pilot.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L2",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "When the handle is switched to “Up” the retracting landing gear sequence is executed, when the handle is switched to “Down” the extending landing gear sequence is executed.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L3",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "The pilot has a set of lights giving the current position of gears and doors, and the current health state of the system and its equipments.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L4",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "These lights are: (i) one green light: “gears are locked down”, (ii) one orange light: “gears maneuvering”, (iii) one red light: “landing gear system failure”.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L5",
+    "Categories": "Role",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "No light is on when the gears are locked up.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L6",
+    "Categories": "Role",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In case of failure, the pilot can manually activate the emergency hydraulic circuit.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L7",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "The expected consequence of this action is to lock the gears in the down position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L8",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "In case of success and if the corresponding sensors are still working, the green light “gears are locked down” must be on.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L9",
+    "Categories": "Behavior",
+    "SubCategorie": "Non-Functionnal"
+  },
+  {
+    "Exigences": "The architecture of the hydraulic part is described in Figure 4.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L10",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Each of the of three landing sets (front, left and right) has got: (i) a landing gear uplock box, and (ii) a door with two latching boxes in the closed position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L11",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The landing gears and doors motion is performed by a set of actuating cylinders.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L12",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The  cylinder  position  corresponds  to  the  door  or  landing  gear  position (when a door is open, the corresponding cylinder is extended).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L13",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "The landing system has the following actuating cylinders:",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L14",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "- For each door, a cylinder opens and closes the door.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L15",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "- For each landing gear, a cylinder retracts and extends the landing gear.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L16",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "Hydraulic power is provided to the cylinders by a set of electro-valves:",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L18",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "- One general electro-valve which supplies the specific electro-valves with hydraulic power from the aircraft hydraulic circuit.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L19",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "- One electro-valve that sets pressure on the portion of the hydraulic circuit related to door opening.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L20",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– One electro-valve that sets pressure on the portion of the hydraulic circuit related to door closing.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L21",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– One electro-valve that sets pressure on the portion of the hydraulic circuit related to landing gear extending.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L22",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– One electro-valve that sets pressure on the portion of the hydraulic circuit related to the landing gear retracting.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L23",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Each electro-valve is activated by an electrical order coming from the digital part.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L24",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "In the specific case of the general electro-valve, this electrical order goes through an analogical switch in order to prevent abnormal behavior of the digital part (e.g. abnormal activation of the general electro-valve).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L25",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "Note that the three doors (resp. gears) are controlled simultaneously by the same electro-valve.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L26",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Put differently, it is not possible to control the doors (resp. gears) separately.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L27",
+    "Categories": "Limit",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "A set of discrete sensors inform the digital part about the state of the equipments:",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L29",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "- Front / right / left gear is locked / not locked in the extended position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L30",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "- Front / right / left gear is locked / not locked in the retracted position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L31",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "- Front / right / left gear shock absorber is on ground / in flight.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L32",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "- Front / right / left door is in open / not open position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L33",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "- Front / right / left door is locked / not locked in the closed position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L34",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "- The hydraulic circuit (after the general electro-valve) is pressurized / not pressurized.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L35",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– The analogical switch between the digital part and the general electro-valve",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L36",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "is closed / open.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L37",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In order to prevent sensor failures, each sensor is triplicated (i.e. each sensor is divided into three independent micro-sensors).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L39",
+    "Categories": "Constraint",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "It delivers simultaneously three discrete values describing the same situation (for instance “the left gear is locked in retracted position”).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L40",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "The digital part is composed of two identical computing modules (see Figure 5).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L42",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Each one executes in parallel the same control software.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L43",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "This software is in charge of controlling gears and doors, of detecting anomalies, and of informing the pilot about the global state of the system and anomalies (if any).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L44",
+    "Categories": "Goal",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "It is part of a retroaction loop with the physical system, and produces commands for the distribution elements of the hydraulic system with respect to the sensors values and the pilot orders.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L45",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The two computing modules receive the same inputs.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L46",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "These inputs are (remember that all the inputs are triplicated):",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L48",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– handlei ∈ {up, down} i = 1, 2, 3",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L49",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "handlei characterizes the position of the handle.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L50",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "If the handle is UP (resp. DOWN), then handlei = up (resp. handlei = down).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L51",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– analogical switchi ∈ {open, closed} i = 1, 2, 3",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L52",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "analogical switchi characterizes the position of the analogical switch: open or closed.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L53",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– gear extendedi [x] ∈ {true, false} i = 1, 2, 3, x in {front, right, left}",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L54",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– gear retractedi [x] ∈ {true, false} i = 1, 2, 3, x in {front, right, left}",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L55",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "gear extendedi [x] is true if the corresponding gear is locked in the extended position and false in the other case.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L56",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "gear retractedi [x] is true if the corresponding gear is locked in the retracted position and false in the other case (see Figure 11).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L57",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– gear shock absorberi [x] ∈ {ground, flight} i = 1, 2, 3, x in {front, right, left}",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L58",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "gear shock absorberi [x] is returned by a sensor implemented directly on the corresponding gear (see Figure 11).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L59",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "It is true if and only if the aircraft is on ground.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L60",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– door closedi [x] ∈ {true, false} i = 1, 2, 3, x in {front, right, left}",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L61",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– door openi [x] ∈ {true, false} i = 1, 2, 3, x in {front, right, left}",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L62",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "door closedi [x] is true if and only if the corresponding door is locked closed.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L63",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "door openi [x] is true if and only if the corresponding door is locked open (see Figure 12).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L64",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– circuit pressurizedi ∈ {true, false} i = 1, 2, 3",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L65",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "circuit pressurizedi is returned by a pressure sensor on the hydraulic circuit between the general electro-valve and the maneuvering electro-valve (see Figure 4).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L66",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "circuit pressurizedi is true if and only if the pressure is high in this part of the hydraulic circuit.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L67",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The total amount of input discrete values received by each computing module is 54 (3 handle, 3 analogical switch, 9 gear extended, 9 gear retracted, 9 gear shock absorber, 9 door closed, 9 door open and 3 circuit pressurized).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L68",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "From these inputs, each module computes 5 electrical orders for the electrovalves:",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L69",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– general EVk ∈ {true, false} k = 1, 2",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L70",
+    "Categories": "component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– close EVk ∈ {true, false} k = 1, 2",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L71",
+    "Categories": "component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– open EVk ∈ {true, false} k = 1, 2",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L72",
+    "Categories": "component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– retract EVk ∈ {true, false} k = 1, 2",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L73",
+    "Categories": "component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– extend EVk ∈ {true, false} k = 1, 2",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L74",
+    "Categories": "component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "where “EV” stands for “Electro-Valve” and",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L75",
+    "Categories": "meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "k stands for the number of the considered computing module.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L76",
+    "Categories": "meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "These corresponding electrical orders outgoing from the two modules are physically produced on the same electrical line.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L77",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The implicit composition of two outputs is an electrical “OR” as shown in Figure 5.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L78",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "For instance, let us consider the general EV parameter.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L79",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "If the two modules produce the same value on general EV1 and general EV2 , then this value is produced to the general electro-valve.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L80",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Otherwise, if only one of them is true (because of a failure somewhere in the digital part), then the value true is produced to the electro-valve, even if it is not the correct value.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L81",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The problem will anyway be detected at the next cycle when the module that produced the false value will detect an unexpected behavior with respect to its own orders.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L82",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Then it will inform the pilot of a potential anomaly in the system.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L83",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Similarly the two modules produce global boolean state variables to the cockpit:",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L84",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– gears locked downk ∈ {true, false} k = 1, 2",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L85",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– gears maneuveringk ∈ {true, false} k = 1, 2",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L86",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– anomalyk ∈ {true, false} k = 1, 2",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L87",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "These outputs are synthesized by each module from sensors data and from the situation awareness.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L88",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Similarly to electrical orders provided to the electro-valves, the boolean state variables from the two modules are composed following a logical “OR” operation.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L89",
+    "Categories": "Constraint",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "If gears locked downk (for some k) is sent to the pilot interface with the value true, then the green light “gears are locked down” is on.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L90",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "If gears maneuveringk (for some k) is sent to the pilot interface with the value true, then the orange light “gears maneuvering” is on.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L91",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "If anomalyk (for some k) is sent to the pilot interface with the value true, then the red light “landing gear system failure” is on.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L92",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The output interface of each module is synthesized on Figure 6.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/architecture.txt#L93",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Figure 3",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/globalArchitecture.png",
+    "Categories": "Behavior",
+    "SubCategorie": "Functional"
+  },
+  {
+    "Exigences": "Figure 4",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/hydraulicPart.png",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Figure 5",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/digitalPart.png",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Figure 6",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/electricalOutputs.png",
+    "Categories": "Behavior",
+    "SubCategorie": "Non-Functional"
+  },
+  {
+    "Exigences": "The aim of this switch is to protect the system against abnormal behavior of the digital part.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L1",
+    "Categories": "Goal",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In order to prevent inadvertent order to the electro-valves, the general electro-valve can be stimulated only if this switch is closed.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L2",
+    "Categories": "Constraint",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The switch is closed each time the “Up/Down” handle is moved by the pilot, and it remains closed 20 seconds.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L3",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "After this duration, the switch automatically becomes open.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L4",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In the closed position, the switch transmits the electrical order from the digital part to the general electro-valve.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L5",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In the open position, no electrical order is sent to the electro-valve.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L6",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In that case, the oil pressure in the hydraulic circuit becomes down.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L7",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Because of inertial reasons, the transition from the two states closed and open takes a given amount of time:",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L8",
+    "Categories": "Constraint",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– from open to closed: 0.8 second,",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L9",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– from closed to open 1.2 seconds.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L10",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In addition to this normal behavior, the analogical switch can fail.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L11",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "We consider only permanent failures: the switch remains blocked in the closed or in the open position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L12",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "A failure can occur at any time.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L13",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The global behavior of the switch, including failures, is specified by the model of Figure 7 and the hierarchical hybrid automaton of Figure 8.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L14",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In this specification, in stands for the input value of the switch.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L15",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In the global architecture of Figure 4, the in port of the analogical switch is connected to the general EV output of the digital part (i.e., in = general EV).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L16",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The variable out stands for the electrical output of the switch.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L17",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "It is connected to the electrical port of the general electro-valve.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L18",
+    "Categories": "Constraint",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The variable state is the logical output of the switch. It belongs to the set {open, closed}.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L19",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "It is connected to the input port analogical switch of the digital part. Note that this output value is triplicated.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L20",
+    "Categories": "Constraint",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The event handle? stands for the detection of a movement of the pilot handle.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L21",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "This event is received each time the pilot moves the handle.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L22",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "And finally x is an internal continuous variable that evolves according to the differential equation in each state.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L23",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The aim of this variable is to count the time in each state.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L24",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "For instance, in the state Open, x does not evolve, state is set to open, and out is set to 0 whatever the value of in.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L25",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "When handle is received, x is set to 0.8, the state Intermediate1 is reached and x begins to decrease.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L26",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The values of state and out remain unchanged. 0.8 seconds later, x reached the null value.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L27",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The transition from Intermediate1 to Close is fired and x is set to 20. state is now set to closed and out is set to in. And so on.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L28",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The initial state of the automaton is Open.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L29",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Note that the switch is independent from the digital part.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/analogical.txt#L30",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "All the electro-valves are supposed to have the same behavior.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L1",
+    "Categories": "Constraint",
+    "SubCategorie": "Obligation"
+  },
+  {
+    "Exigences": "As shown in Figure 9, an electro-valve is an hydraulic equipment which has got two hydraulic ports Hin (hydraulic input port) and Hout (hydraulic output port), and an electrical port (E ∈ {true, textitf alse).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L2",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Its behavior depends on the value of the electrical order connected to E.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L3",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– if E = false (the voltage of the electrical order is down), then Hout = 0 (no pressure on the hydraulic output side, the hydraulic circuit is open);",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L4",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– if E = true (the voltage of the electrical order is high), then Hout = Hin (the hydraulic circuit is closed);",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L5",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "Note that the electrical order must be sustained to true (i..e, at the high voltage) to maintain the electro-valve in the closed position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L6",
+    "Categories": "behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "Put differently, the electrical order is not a discrete event, but can be seen as an analogical signal.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L7",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Because of inertial reasons, we suppose that from the open position to the closed position, the pressure grows up continuously from 0 to Hin.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L8",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In this case study we suppose that the pressure grows up linearly, and that the total duration of the transition phase is 1 second.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L9",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In the same way, the pressure goes down continuously from Hin to 0.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L10",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "We suppose that the pressure goes down linearly, and that the total duration of the transition phase is 3,6 seconds.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L11",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In addition to this normal behavior, any electro-valve can fail.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L12",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "We consider only permanent failures: the electro-valve remains blocked in the closed or the open state.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L13",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "A failure can occur at any time.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/electro-valves.txt#L14",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Cylinders are pure hydraulic equipments.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L1",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "As shown on Figure 10, they begin to move when they receive hydraulic pressure, and they stop to move when the pressure goes down or when they reach the end of their race.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L2",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Gear cylinders are locked in high or down position by means of a latching box mechanism (the latching boxes are physically on the gears, one for each position).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L3",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "When a gear cylinder is locked in high (resp. down) position and when it receives pressure from the high (resp. down) hydraulic circuit,",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L4",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– first it is unlocked from the high (resp. down) position",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L5",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– then it moves to the down (resp. high) position",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L6",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– and finally it is locked in the down (resp. high) position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L7",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The behavior of the gear (including the values returned by the gear position sensors) is described on Figure 11.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L8",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Door cylinders are locked (by means of two latching boxes on each door) only in closed position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L9",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Doors are maintained open by maintaining pressure in extension circuit.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L10",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "When a door cylinder is locked in closed position and when it receives pressure from the extension hydraulic circuit,",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L11",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– first it is unlocked from the closed position",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L12",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– then it moves to the open position",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L13",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– and finally it is maintained in the open position as long as the pressure is maintained in the hydraulic extension circuit.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L14",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The behavior of the door (including the values returned by the door position sensors) is described on Figure 12.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L15",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "All these operations are done automatically with the hydraulic pressure only.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L16",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "No electrical part is involved in cylinders.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L17",
+    "Categories": "Component",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "These operations take a certain amount of time, depending on the position of the cylinder in the aircraft and in the hydraulic circuit.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L18",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The durations are given in the array below.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L19",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The values are only mean values.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L20",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The true durations can vary around these values up to 20%.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L21",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Durations are given in Table 1.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L22",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Note that it is possible to stop and to inverse the motion of any cylinder at any time.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L23",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "An example of the front-gear movement is given on Figure 13.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L24",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "This scenario is based on the mean values given in the previous table.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L26",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Let us suppose that the front gear is locked in the extended position when the pressure arrives in the retraction circuit (first red arrow on the left).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L27",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Then the gear is unlocked 0.4s later.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L28",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "It goes up during 1.6s.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L29",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "And finally it is locked in the retracted position 2.4s after the arrival of the pressure in the hydraulic circuit.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L30",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Let us consider now that the pressure arrives in the extension circuit.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L31",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "The gear is unlocked 0.8s later.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L32",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "It begins moving down. Let us suppose now that the pressure is stopped.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L33",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Then the cylinder stops as well in the current position.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L34",
+    "Categories": "behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "If the pressure arrives again in the retraction circuit, the gear goes up immediately from this current position at normal speed.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L35",
+    "Categories": "Behavior",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In the same way, the last part of the scenario describes the extension phase without any interruption.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L36",
+    "Categories": "meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "In addition to this normal behavior, any cylinder can fail.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L37",
+    "Categories": "Constraint",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "We consider only permanent failures: the cylinder remains blocked in the last position (down, high, or between these two positions).",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L38",
+    "Categories": "Constraint",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Any failure can occur at any time.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/cylinders.txt#L39",
+    "Categories": "Constraint",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Figure 7",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/analogicalSwitchInterface.png",
+    "Categories": "Behavior",
+    "SubCategorie": "Functional"
+  },
+  {
+    "Exigences": "Figure 8",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/analogicalSwitchBehavior.png",
+    "Categories": "Behavior",
+    "SubCategorie": "Functional"
+  },
+  {
+    "Exigences": "Figure 9",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/electro-valve.PNG",
+    "Categories": "Behavior",
+    "SubCategorie": "Functional"
+  },
+  {
+    "Exigences": "Figure 10",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/extension.png",
+    "Categories": "Behavior",
+    "SubCategorie": "Functional"
+  },
+  {
+    "Exigences": "Figure 11",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/integration.png",
+    "Categories": "Behavior",
+    "SubCategorie": "Functional"
+  },
+  {
+    "Exigences": "Tableau 1",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/durationTable.png",
+    "Categories": "Constraint",
+    "SubCategorie": "Obligation"
+  },
+  {
+    "Exigences": "Figure 12",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/integrationDoor.png",
+    "Categories": "Behavior",
+    "SubCategorie": "Functional"
+  },
+  {
+    "Exigences": "Figure 13",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/example.png",
+    "Categories": "Behavior",
+    "SubCategorie": "Functional"
+  },
+  {
+    "Exigences": "Figure 14",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/lgs-levels.png",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Figure 15",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/images/lgs-levels-org.png",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "– (R11 ) When the command line is working (normal mode), if the landing gear command handle has been pushed DOWN and stays DOWN, then the gears will be locked down and the doors will be seen closed less than 15 seconds after the handle has been pushed;",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L6",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R12 ) When the command line is working (normal mode), if the landing gear command handle has been pushed UP and stays UP, then the gears will be locked retracted and the doors will be seen closed less than 15 seconds after the handle has been pushed.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L7",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R11 bis) When the command line is working (normal mode), if the landing gear command handle has been pushed DOWN and stays DOWN, then eventually the gears will be locked down and the doors will be seen closed;",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L11",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R12 bis) When the command line is working (normal mode), if the landing gear command handle has been pushed UP and stays UP, then eventually the gears will be locked retracted and the doors will be seen closed.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L12",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R21 ) When the command line is working (normal mode), if the landing gear command handle remains in the DOWN position, then retraction sequence is not observed.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L15",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R22 ) When the command line is working (normal mode), if the landing gear command handle remains in the UP position, then outgoing sequence is not observed.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L16",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R31 ) When the command line is working (normal mode), the stimulation of the gears outgoing or the retraction electro-valves can only happen when the three doors are locked open.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L19",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R32 ) When the command line is working (normal mode), the stimulation of the doors opening or closure electro-valves can only happen when the three gears are locked down or up.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L20",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R41 ) When the command line is working (normal mode), opening and closure doors electro-valves are not stimulated simultaneously.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L23",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R42 ) When the command line is working (normal mode), outgoing and retraction gears electro-valves are not stimulated simultaneously.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L24",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R51 )When the command line is working (normal mode), it is not possible to stimulate the maneuvering electro-valve (opening, closure, outgoing or retraction) without stimulating the general electro-valve.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L27",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R61 ) If one of the three doors is still seen locked in the closed position more than 7 seconds after stimulating the opening electro-valve, then the boolean output normal mode is set to false.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L32",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R62 ) If one of the three doors is still seen locked in the open position more than 7 seconds after stimulating the closure electro-valve, then the boolean output normal mode is set to false.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L33",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R63 ) If one of the three gears is still seen locked in the down position more than 7 seconds after stimulating the retraction electro-valve, then the boolean output normal mode is set to false.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L34",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R64 ) If one of the three gears is still seen locked in the up position more than 7 seconds after stimulating the outgoing electro-valve, then the boolean output normal mode is set to false.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L35",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R71 ) If one of the three doors is not seen locked in the open position more than 7 seconds after stimulating the opening electro-valve, then the boolean output normal mode is set to false.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L38",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R72 ) If one of the three doors is not seen locked in the closed position more than 7 seconds after stimulating the closure electro-valve, then the boolean output normal mode is set to false.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L39",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R73 ) If one of the three gears is not seen locked in the up position more than 10 seconds after stimulating the retraction electro-valve, then the boolean output normal mode is set to false.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L40",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R74 ) If one of the three gears is not seen locked in the down position more than 10 seconds after stimulating the outgoing electro-valve, then the boolean output normal mode is set to false.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L41",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R81 ) When at least one computing module is working, if the landing gear command handle has been DOWN for 15 seconds, and if the gears are not locked down after 15 seconds, then the red light ”landing gear system failure” is on.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L44",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "– (R82 ) When at least one computing module is working, if the landing gear command handle has been UP for 15 seconds, and if the gears are not locked retracted after 15 seconds, then the red light ”landing gear system failure” is on.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L45",
+    "Categories": "Behavior",
+    "SubCategorie": "Functionnal"
+  },
+  {
+    "Exigences": "The requirements to be proved on the system are divided into two parts: normal mode requirements, and failure mode requirements",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L1",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Normal mode requirements",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L3",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Requirement R1 :",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L5",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Note that a weaker version of these two requirements could be considered as well.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L9",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "This weaker version does not take into account quantitative time.",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L10",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Requirement R2 :",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L14",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Requirement R3 :",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L18",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Requirement R4 :",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L22",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Requirement R5 :",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L26",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Failure mode requirements",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L29",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Requirement R6 :",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L31",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Requirement R7 :",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L37",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Requirement R8 :",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/reqs.txt#L43",
+    "Categories": "",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Git Rules",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L171",
+    "Categories": "Meta-requirement",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Create Issue",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L175",
+    "Categories": "Task",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Create Branch",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L182",
+    "Categories": "Task",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "Merge Request",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L188",
+    "Categories": "Task",
+    "SubCategorie": ""
+  },
+  {
+    "Exigences": "- Git Management: GUIRAUDET Denis, ORRIERE Matthieu",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L235",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Requirements: GATHIGNOL Yoann, GENTILLET Louise",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L236",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Pilot Parts: SUSA Guilhem, BOUËTE-GIRAUD Titouan",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L237",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Context Diagram: BEN-YOUSSEF Kaïs, PERICAT Etienne",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L238",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Packages Structure : FERRET Pascal, LEJEUNE Nicolas",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L239",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Digital Part: PAUSÉ Alexandre, SIBADE Arnaud",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L240",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Documentation Atomated Generation: THOMAS Aurélien, COMBAREL Florian",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L241",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Hydraulic Part: SIMON Sébastian, MENDY Mamadou",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L242",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Case Study Description: PENSEL Solen, JACQUOT Alex",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L243",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Behaviors: AYLLÓN Dorian, DUCOEUR Guillaume",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L244",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Global Architecture: LOU Clarisse, TRAN Lino",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L245",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  },
+  {
+    "Exigences": "- Description: FERNANDO-JOHNSON Jonathan, SEYDOU ISSAKA Idrissa",
+    "Lien": "https://mi-git.univ-tlse2.fr/ECb/LGS/blob/master/README.adoc#L246",
+    "Categories": "Role",
+    "SubCategorie": "Responsability"
+  }
+]
