@@ -5,6 +5,10 @@ https://docs.google.com/spreadsheets/d/1nMh7nWOelh5Vgl3Hnfi7nBB4x1xRWGBzhOfLGP1t
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
+## After cloning
+
+While in your local git repository use the command 'npm install' to download the dependancies of the app. After you've done this step you can either run the development server or build the app to deploy on a server.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
